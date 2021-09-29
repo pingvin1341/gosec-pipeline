@@ -1,0 +1,11 @@
+docker run --rm -v /srv/gitlab-runner/config:/etc/gitlab-runner gitlab/gitlab-runner register \
+  --non-interactive \
+  --executor "docker" \
+  --docker-image alpine:latest \
+  --url "https://gitlab.com/" \
+  --registration-token "tKjWPG4tskMyfGkL4SFY" \
+  --description "docker-runner" \
+  --tag-list "docker" \
+  --run-untagged="true" \
+  --locked="false" \
+  --access-level="not_protected"
