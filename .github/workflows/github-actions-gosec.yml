@@ -23,7 +23,7 @@ jobs:
       - name: Show dirs structure
         run: cd  ../ && ls -la
       - name: Run semgrep in docker
-        run: cd ../ && docker run -v $(pwd):/src --workdir /src returntocorp/semgrep-agent:v1 semgrep --config custom-rules/ --json gocec-pipeline/* > semgrep.json
+        run: cd ../ && docker run -v $(pwd):/src --workdir /src returntocorp/semgrep-agent:v1 semgrep --config custom-rules/ --json gosec-pipeline/* > semgrep.json
       - name: view
         run: cat semgrep.json
 
