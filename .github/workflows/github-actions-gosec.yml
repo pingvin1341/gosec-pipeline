@@ -5,7 +5,7 @@ on:
 
 jobs:
   semgrep:
-    name: Scan
+    name: Semgrep scan
     runs-on: ubuntu-latest
     if: (github.actor != 'dependabot[bot]')
     steps:
@@ -14,7 +14,9 @@ jobs:
         run: docker run -v $(pwd):/src --workdir /src returntocorp/semgrep-agent:v1 semgrep --config p/gosec --json . > semgrep.json
       - name: view
         run: cat semgrep.json
-  tests:
+
+  gosec:
+    name: Gosec scan 
     runs-on: ubuntu-latest
     env:
       GO111MODULE: on
@@ -25,16 +27,17 @@ jobs:
         uses: securego/gosec@master
         with:
           args: '-no-fail -fmt sarif -out gosec.sarif ./...'
-      - name: Upload file
-        run: |
-         curl -v -s --request POST ${{ secrets.REPORT_URL }} \
-         -H "Content-Type: multipart/form-data" \
-         -H "Authorization: Token ${{ secrets.API_REPORT_KEY }}" \
-         -F "file=@gosec.sarif"
+      - name: view
+        run: cat gosec.sarif
+  #    - name: Upload file
+   #     run: |
+    #     curl -v -s --request POST ${{ secrets.REPORT_URL }} \
+    #     -H "Content-Type: multipart/form-data" \
+    #     -H "Authorization: Token ${{ secrets.API_REPORT_KEY }}" \
+    #     -F "file=@gosec.sarif"
 
   analyze:
-
-    name: analyze
+    name: Codeql scan
     runs-on: ubuntu-latest
 
     strategy:
