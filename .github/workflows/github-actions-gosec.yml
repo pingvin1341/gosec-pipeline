@@ -21,10 +21,11 @@ jobs:
           SSH_AUTH_SOCK: /tmp/ssh_agent.sock
         run: git clone git@github.com:pingvin1341/custom-rulepack.git ../custom-rules/
       - name: Show dirs structure
-        run: ls -la ../
- 
-      - name: Run
-        run: docker run -v $(pwd):/src --workdir /src returntocorp/semgrep-agent:v1 semgrep --config ../custom-rules/ --json . > semgrep.json
+        run: cd  ../
+      - name: Show dirs structure
+        run: ls -la 
+      - name: Run semgrep in docker
+        run: docker run -v $(pwd):/src --workdir /src returntocorp/semgrep-agent:v1 semgrep --config custom-rules/ --json gocec-pipeline/* > semgrep.json
       - name: view
         run: cat semgrep.json
 
