@@ -25,7 +25,7 @@ jobs:
       - name: Run semgrep in docker
         run: cd ../ && docker run -v $(pwd):/src --workdir /src returntocorp/semgrep-agent:v1 semgrep --config custom-rules/ --json gosec-pipeline/* > semgrep.json
       - name: view
-        run: cat semgrep.json
+        run: cat ../semgrep.json
 
   gosec:
     name: Gosec scan 
