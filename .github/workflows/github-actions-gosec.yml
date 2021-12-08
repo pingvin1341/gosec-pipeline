@@ -4,6 +4,16 @@ on:
     branches: ["master", "main"]
 
 jobs:
+  semgrep:
+    name: Scan
+    runs-on: ubuntu-latest
+    if: (github.actor != 'dependabot[bot]')
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run
+        run: docker run -v $(pwd):/src --workdir /src returntocorp/semgrep-agent:v1 semgrep --config p/gosec --json . > semgrep.json
+      - name: view
+        run: cat semgrep.json
   tests:
     runs-on: ubuntu-latest
     env:
