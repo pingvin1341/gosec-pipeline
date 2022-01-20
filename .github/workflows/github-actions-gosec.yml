@@ -92,5 +92,3 @@ jobs:
        # fetch-depth: 2
     - name: trufflehog-actions-scan
       uses: edplato/trufflehog-actions-scan@master
-      with:
-        scanArguments: "--json --max_depth=5" 
