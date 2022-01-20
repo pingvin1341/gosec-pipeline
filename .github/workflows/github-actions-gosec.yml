@@ -92,7 +92,5 @@ jobs:
         fetch-depth: 0
     - name: trufflehog-actions-scan
       uses: pingvin1341/trufflehog-actions-scan@master
-      with:
-        scanArguments: "--json --regex  --max_depth=50 --entropy=False"
-    - name: view
-      run: cat report.json
+      #with:
+       # scanArguments: "--json --regex  --max_depth=50 --entropy=False"
