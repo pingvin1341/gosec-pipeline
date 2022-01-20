@@ -93,4 +93,4 @@ jobs:
     - name: trufflehog-actions-scan
       uses: edplato/trufflehog-actions-scan@master
       with:
-        scanArguments: "--json --regex  --max_depth=50" 
+        scanArguments: "--json --regex  --max_depth=50 --entropy=False" 
