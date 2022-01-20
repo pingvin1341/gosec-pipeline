@@ -83,3 +83,12 @@ jobs:
     - uses: actions/checkout@v1
     - name: gitleaks-action
       uses: zricethezav/gitleaks-action@master
+
+  tuflehog:
+    runs-on: ubuntu-latest      
+    steps:
+    - uses: actions/checkout@v2
+      with:
+       fetch-depth: 0
+    - name: trufflehog-actions-scan
+      uses: edplato/trufflehog-actions-scan@master
