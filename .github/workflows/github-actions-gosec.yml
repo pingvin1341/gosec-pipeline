@@ -76,3 +76,10 @@ jobs:
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
+
+  gitleaks:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: gitleaks-action
+      uses: zricethezav/gitleaks-action@master
