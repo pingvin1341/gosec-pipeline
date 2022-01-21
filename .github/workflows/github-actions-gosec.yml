@@ -94,5 +94,5 @@ jobs:
       uses: pingvin1341/trufflehog-actions-scan@master
       with:
         scanArguments: "--no-history --format json /github/workspace --output result.json"
-    - name: listing
-      run: ls -la
+    - name: result  
+      run: cat result.txt
