@@ -93,6 +93,6 @@ jobs:
     - name: trufflehog-actions-scan
       uses: pingvin1341/trufflehog-actions-scan@master
       with:
-        scanArguments: "--no-history --format json /github/workspace"
+        scanArguments: "--no-history --format json /github/workspace > result.txt"
     - name: result
-      run: ls && ls -la ../
+      run: ls
