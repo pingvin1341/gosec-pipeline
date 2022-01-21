@@ -85,7 +85,7 @@ jobs:
       uses: zricethezav/gitleaks-action@master
       id: gitleaks_run
     - name: result
-      run: echo {{steps.gitleaks_run.outputs.result}}
+      run: echo ${{steps.gitleaks_run.outputs.result}}
 
   tuflehog:
     runs-on: ubuntu-latest      
