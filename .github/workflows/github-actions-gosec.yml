@@ -95,4 +95,4 @@ jobs:
       with:
         scanArguments: " --no-history --format json "
     - name: result
-      run: ls -la 
+      run: ls
