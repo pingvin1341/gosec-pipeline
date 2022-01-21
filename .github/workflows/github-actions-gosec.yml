@@ -102,4 +102,4 @@ jobs:
       with:
         scanArguments: "--no-history --format json /github/workspace --output result.json"
     - name: result  
-      run: cat result.txt
+      run: cat result.json
