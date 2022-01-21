@@ -89,10 +89,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-        fetch-depth: 2
+        fetch-depth: 0
     - name: trufflehog-actions-scan
       uses: pingvin1341/trufflehog-actions-scan@master
       with:
-        scanArguments: "--no-history --format json /github/workspace > result.txt"
-    - name: result
+        scanArguments: "--no-history --format json /github/workspace 2&1 > result.txt"
+    - name: listing
       run: ls
