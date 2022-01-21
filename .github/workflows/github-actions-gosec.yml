@@ -95,4 +95,4 @@ jobs:
       with:
         scanArguments: "--no-history --format json --output ../result.json /github/workspace"
     - name: result
-      run: ls -la ../
+      run: ls && ls -la ../
