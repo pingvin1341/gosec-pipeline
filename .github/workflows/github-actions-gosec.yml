@@ -87,7 +87,7 @@ jobs:
     #- name: result
     #  run: echo ${{steps.gitleaks_run.outputs.result}}
     - name: gitleaks in docker
-      run: docker run -v $(pwd):/src --workdir /src zricethezav/gitleaks:latest gitleaks  --source="/src" --verbose --redact --exit-code 1 --report-format json > gitleaks.json
+      run: docker run -v $(pwd):/src --workdir /src zricethezav/gitleaks:latest  --source="/src" --verbose --redact --exit-code 1 --report-format json > gitleaks.json
     - name: result
       run: cat gitleaks.json
 
