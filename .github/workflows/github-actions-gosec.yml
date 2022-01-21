@@ -93,6 +93,6 @@ jobs:
     - name: trufflehog-actions-scan
       uses: pingvin1341/trufflehog-actions-scan@master
       with:
-        scanArguments: "--no-history --format json  --output result.json"
+        scanArguments: " --no-history --format json  --output result.json"
     - name: result
-      run: cat result.json
+      run: ls -la 
