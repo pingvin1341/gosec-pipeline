@@ -92,7 +92,7 @@ jobs:
         fetch-depth: 0
     - name: trufflehog-actions-scan
       uses: pingvin1341/trufflehog-actions-scan@master
-#with:
-     #   scanArguments: "--no-history --format json /github/workspace"
+      with:
+        scanArguments: "--no-history --format json /github/workspace > result.json"
     - name: listing
-      run: ls -la
+      run: ls -la && cat result.json
