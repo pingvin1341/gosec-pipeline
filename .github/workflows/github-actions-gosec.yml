@@ -90,9 +90,9 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-   # - name: trufflehog-actions-scan
-      #uses: pingvin1341/trufflehog-actions-scan@master
-    #  with:
-        #scanArguments: "--no-history --format json /github/workspace 2&1 > result.txt"
+    - name: trufflehog-actions-scan
+      uses: pingvin1341/trufflehog-actions-scan@master
+      with:
+        scanArguments: "--no-history --format json /github/workspace --output report.json1"
     - name: listing
-      run: ls
+      run: pwd
