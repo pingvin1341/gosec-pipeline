@@ -2,5 +2,5 @@
     name: Trim Trailing Whitespace
     description: This hook trims trailing whitespace.
     entry: trailing-whitespace-fixer
-    language: python
+    language: golang
     types: [text]
