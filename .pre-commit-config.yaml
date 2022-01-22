@@ -1,6 +1,7 @@
--   id: trailing-whitespace
-    name: Trim Trailing Whitespace
-    description: This hook trims trailing whitespace.
-    entry: trailing-whitespace-fixer
-    language: golang
-    types: [text]
+-   repo: local
+    hooks:
+    -   id: trailing-whitespace
+        name: changelogs must be rst
+        entry: changelog filenames must end in .rst
+        language: golang
+        types: [text]
