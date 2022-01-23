@@ -131,4 +131,3 @@ jobs:
       run: docker run -v $(pwd):/src/code --workdir /src  ibmcom/detect-secrets:latest   > detect-secrets.json
     - name: result
       run: cat detect-secrets.json
-	  
