@@ -127,7 +127,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - name: gitleaks in docker
-      run: docker run -v $(pwd):/src/code --workdir /src  ibmcom/detect-secrets:latest  detect-secrets scan .  > detect-secrets.json
+    - name: detect-secrets in docker
+      run: docker run -v $(pwd):/src --workdir /src  ibmcom/detect-secrets:latest  scan .  > detect-secrets.json
     - name: result
       run: cat detect-secrets.json
