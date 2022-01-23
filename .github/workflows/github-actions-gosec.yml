@@ -121,3 +121,14 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: pre-commit/action@v2.0.3      
+
+  detect-secrets:
+    name: Scan detect-secrets 
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: gitleaks in docker
+      run: docker run -v $(pwd):/src/code --workdir /src  ibmcom/detect-secrets:latest   > detect-secrets.json
+    - name: result
+      run: cat detect-secrets.json
+	  
