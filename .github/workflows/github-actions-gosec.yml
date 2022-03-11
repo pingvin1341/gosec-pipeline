@@ -137,13 +137,19 @@ jobs:
     steps:
     - uses: actions/checkout@v2
  
-    - name: ⚔️ OWASP
-      uses: morrro01/owasp-dependency-scan-action-lnrsg@v1.0.6
+
+    - name: Depcheck
+      uses: dependency-check/Dependency-Check_Action@main
+      id: Depcheck
       with:
-        project: 'My Application'
+        project: 'test'
         path: '.'
-        format: 'ALL'
-        scan_args: >
+        format: 'HTML'    
+        args: >
           --failOnCVSS 7
-          --enableRetired      
-      
+          --enableRetired
+    - name: Upload Test results
+      uses: actions/upload-artifact@master
+      with:
+         name: Depcheck report
+         path: ${{github.workspace}}/report      
