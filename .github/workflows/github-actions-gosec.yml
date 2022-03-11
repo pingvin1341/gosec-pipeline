@@ -141,8 +141,8 @@ jobs:
       uses: morrro01/owasp-dependency-scan-action-lnrsg@v1.0.6
       with:
         project: 'My Application'
-        path: 'gosec-pipeline/'
-        format: 'JSON'
+        path: '.'
+        format: 'HTML'
         scan_args: >
           --failOnCVSS 7
           --enableRetired      
