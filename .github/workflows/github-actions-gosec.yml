@@ -141,7 +141,7 @@ jobs:
       uses: morrro01/owasp-dependency-scan-action-lnrsg@v1.0.6
       with:
         project: 'My Application'
-        path: '.'
+        path: 'gosec-pipeline/'
         format: 'JSON'
         scan_args: >
           --failOnCVSS 7
