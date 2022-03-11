@@ -131,14 +131,19 @@ jobs:
       run: docker run -v $(pwd):/src --workdir /src  ibmcom/detect-secrets:latest  scan .  > detect-secrets.json
     - name: result
       run: cat detect-secrets.json
-
-
   owasp:
     name: Scan dependency 
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-    - name: Scan dependency in docker
-      run: docker run --rm --volume $(pwd):/src:z --volume ../$(pwd):/report:z owasp/dependency-check:latest  --scan /src  --format "ALL"  --out /report
-    - name: result
-      run: ls -la ../
+    - uses: actions/checkout@v2
+ 
+    - name: ⚔️ OWASP
+      uses: morrro01/owasp-dependency-scan-action-lnrsg@v1
+      with:
+        project: 'My Application'
+        path: '.'
+        format: 'JSON'
+        scan_args: >
+          --failOnCVSS 7
+          --enableRetired      
+      
