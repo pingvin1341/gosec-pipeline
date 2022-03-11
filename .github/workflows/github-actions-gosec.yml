@@ -170,7 +170,7 @@ jobs:
     - name: Nancy
       uses: pingvin1341/nancy-github-action@main
       with:
-        nancyCommand: sleuth -q -o json > /github/workspace/reports/nancy.json || true
+        nancyCommand: sleuth -q -o json || true
     - name: Upload Test results
       uses: actions/upload-artifact@master
       with:
