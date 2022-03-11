@@ -168,7 +168,7 @@ jobs:
       run: go list -json -m all > go.list
 
     - name: Nancy
-      uses: sonatype-nexus-community/nancy-github-action@main
+      uses: pingvin1341/nancy-github-action@main
       with:
         nancyCommand: sleuth -q -o json > /github/workspace/reports/nancy.json || true
     - name: Upload Test results
