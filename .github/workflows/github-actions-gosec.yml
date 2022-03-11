@@ -139,6 +139,6 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Scan dependency in docker
-      run: docker run --rm --volume $(pwd):/src:z --volume $(pwd):/report:z owasp/dependency-check:latest  --scan /src  --format "ALL"  --project "dependency-check scan: $(pwd)"  --out /report
+      run: docker run --rm --volume $(pwd):/src:z --volume $(pwd):/report:z owasp/dependency-check:latest  --scan /src  --format "ALL"  --out /report
     - name: result
       run: ls -la
