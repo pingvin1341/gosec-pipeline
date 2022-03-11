@@ -142,7 +142,7 @@ jobs:
       with:
         project: 'My Application'
         path: '.'
-        format: 'HTML'
+        format: 'ALL'
         scan_args: >
           --failOnCVSS 7
           --enableRetired      
