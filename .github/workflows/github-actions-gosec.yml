@@ -144,7 +144,7 @@ jobs:
       with:
         project: 'test'
         path: '.'
-        format: 'HTML'    
+        format: 'JSON'    
         args: >
           --failOnCVSS 7
           --enableRetired
@@ -152,7 +152,7 @@ jobs:
       uses: actions/upload-artifact@master
       with:
          name: Depcheck report
-         path: ${{github.workspace}}/reports/dependency-check-report.html
+         path: ${{github.workspace}}/reports/dependency-check-report.json
       
   nancy:
     runs-on: ubuntu-latest
