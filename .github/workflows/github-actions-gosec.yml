@@ -170,4 +170,9 @@ jobs:
     - name: Nancy
       uses: sonatype-nexus-community/nancy-github-action@main
       with:
-        nancyCommand: sleuth -q -o json 
+        nancyCommand: sleuth -q -o json > /github/workspace/reports/nancy.json
+    - name: Upload Test results
+      uses: actions/upload-artifact@master
+      with:
+         name: Nancy report
+         path: ${{github.workspace}}/reports/nancy.json
