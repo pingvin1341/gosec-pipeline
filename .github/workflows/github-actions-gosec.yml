@@ -138,7 +138,7 @@ jobs:
     - uses: actions/checkout@v2
  
     - name: ⚔️ OWASP
-      uses: morrro01/owasp-dependency-scan-action-lnrsg@v1
+      uses: morrro01/owasp-dependency-scan-action-lnrsg@v1.0.6
       with:
         project: 'My Application'
         path: '.'
