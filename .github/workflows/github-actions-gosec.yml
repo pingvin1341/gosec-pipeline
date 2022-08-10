@@ -77,7 +77,7 @@ jobs:
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
     - name: Show dirs structure
-      run:  ls -la && ls -la results/
+      run:  ls -la && ls -la ../results/
 
   gitleaks:
     runs-on: ubuntu-latest
