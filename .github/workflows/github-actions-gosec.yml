@@ -77,7 +77,15 @@ jobs:
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
     - name: Show dirs structure
-      run:  ls -la && ls -la ../results/
+      run:  cat  ../results/${{ matrix.language }}.sarif
+
+
+    - name: Upload file
+      run: |
+        curl -v -s --request POST ${{ secrets.REPORT_URL }} \
+         -H "Content-Type: multipart/form-data" \
+         -H "Authorization: Token ${{ secrets.API_REPORT_KEY }}" \
+         -F "file=@../results/${{ matrix.language }}.sarif"
 
   gitleaks:
     runs-on: ubuntu-latest
